@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import SelectGraph from "../../components/SelectGraph";
 import WaterIcon from "@mui/icons-material/Water";
 import SensorBox from "../../components/SensorBox";
+import TemperatureSensorBox from "../../components/temperature/TemperatureSensorBox";
 import ControlPanel from "../../components/ControlPanel";
 import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
 import CompressIcon from "@mui/icons-material/Compress";
@@ -38,14 +39,8 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <SensorBox
+          <TemperatureSensorBox
             title="Temperature"
-            sensor_1="Ambient:"
-            value_1="23°C"
-            sensor_2="Bearing:"
-            value_2="23°C"
-            sensor_3="Enclosure:"
-            value_3="26°C"
             icon={
               <DeviceThermostatIcon
                 sx={{ color: colors.grey[100], fontSize: "26px" }}
