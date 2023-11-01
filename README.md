@@ -11,6 +11,8 @@
 
 `npm run build`
 
+`cd build`
+
 `npm install -g serve`
 
 `sudo npm install -g n`
