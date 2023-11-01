@@ -19,7 +19,7 @@
 
 `sudo n lts`
 
-`sudo serve -s build`
+`sudo serve -s`
 
 ## Available Scripts
 
