@@ -3,11 +3,15 @@
 
 `cd React-Dashboard`
 
+`sudo apt install npm`
+
 `npm install react-scripts`
 
 `npm install @mui/material @emotion/react @emotion/styled @mui/x-data-grid @mui/icons-material react-router-dom@6 react-pro-sidebar formik yup @nivo/core @nivo/pie @nivo/line @nivo/bar`
 
 `npm run build`
+
+`cd build`
 
 `npm install -g serve`
 
@@ -15,7 +19,7 @@
 
 `sudo n lts`
 
-`sudo serve -s build`
+`sudo serve -s`
 
 ## Available Scripts
 
