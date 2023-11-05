@@ -4,6 +4,7 @@ import { tokens } from "../theme";
 const SensorBox = ({
   title,
   icon,
+  suffix,
   sensor_1,
   value_1,
   sensor_2 = "-",
@@ -36,6 +37,7 @@ const SensorBox = ({
           sx={{ color: colors.greenAccent[300] }}
         >
           {value_1}
+          {suffix}
         </Typography>
       </Box>
       <Box display="flex" justifyContent="space-between" mt="2px">
@@ -48,6 +50,7 @@ const SensorBox = ({
           sx={{ color: colors.greenAccent[300] }}
         >
           {value_2}
+          {suffix}
         </Typography>
       </Box>
       <Box display="flex" justifyContent="space-between" mt="2px">
@@ -60,6 +63,7 @@ const SensorBox = ({
           sx={{ color: colors.greenAccent[300] }}
         >
           {value_3}
+          {suffix}
         </Typography>
       </Box>
     </Box>

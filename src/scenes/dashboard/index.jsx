@@ -5,13 +5,13 @@ import Header from "../../components/Header";
 import SelectGraph from "../../components/SelectGraph";
 import WaterIcon from "@mui/icons-material/Water";
 import SensorBox from "../../components/SensorBox";
-import TemperatureSensorBox from "../../components/temperature/TemperatureSensorBox";
 import ControlPanel from "../../components/ControlPanel";
 import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
 import CompressIcon from "@mui/icons-material/Compress";
 import LeakAddIcon from "@mui/icons-material/LeakAdd";
 import ElectricMeterIcon from "@mui/icons-material/ElectricMeter";
 import MicIcon from "@mui/icons-material/Mic";
+import FetchData from "../../components/FetchData";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -39,8 +39,21 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <TemperatureSensorBox
+          <SensorBox
             title="Temperature"
+            suffix="°C"
+            sensor_1="Sensor 1:"
+            sensor_2="Sensor 2:"
+            sensor_3="Sensor 3:"
+            value_1={
+              <FetchData datatype="TemperatureData" sensornumber="Sensor 1" />
+            }
+            value_2={
+              <FetchData datatype="TemperatureData" sensornumber="Sensor 2" />
+            }
+            value_3={
+              <FetchData datatype="TemperatureData" sensornumber="Sensor 3" />
+            }
             icon={
               <DeviceThermostatIcon
                 sx={{ color: colors.grey[100], fontSize: "26px" }}
@@ -57,12 +70,19 @@ const Dashboard = () => {
         >
           <SensorBox
             title="Vibration"
+            suffix="Hz"
             sensor_1="X-Axis:"
             sensor_2="Y-Axis:"
             sensor_3="Z-Axis:"
-            value_1="22Hz"
-            value_2="50Hz"
-            value_3="32Hz"
+            value_1={
+              <FetchData datatype="VibrationData" sensornumber="Sensor 1" />
+            }
+            value_2={
+              <FetchData datatype="VibrationData" sensornumber="Sensor 2" />
+            }
+            value_3={
+              <FetchData datatype="VibrationData" sensornumber="Sensor 3" />
+            }
             icon={
               <WaterIcon sx={{ color: colors.grey[100], fontSize: "26px" }} />
             }
@@ -78,7 +98,7 @@ const Dashboard = () => {
           <SensorBox
             title="RPM"
             sensor_1="Axle:"
-            value_1="3000 RPM"
+            value_1={<FetchData datatype="RPMData" sensornumber="Sensor 1" />}
             icon={
               <ChangeCircleIcon
                 sx={{ color: colors.grey[100], fontSize: "26px" }}
@@ -96,8 +116,9 @@ const Dashboard = () => {
         >
           <SensorBox
             title="Sound"
+            suffix="dB"
             sensor_1="Microphone:"
-            value_1="36 dB"
+            value_1={<FetchData datatype="SoundData" sensornumber="Sensor 1" />}
             icon={
               <MicIcon sx={{ color: colors.grey[100], fontSize: "26px" }} />
             }
@@ -113,12 +134,19 @@ const Dashboard = () => {
         >
           <SensorBox
             title="Pressure"
+            suffix=" Bar"
             sensor_1="Location A:"
-            value_1="20 Bar"
+            value_1={
+              <FetchData datatype="PressureData" sensornumber="Sensor 1" />
+            }
             sensor_2="Location B:"
-            value_2="20 Bar"
+            value_2={
+              <FetchData datatype="PressureData" sensornumber="Sensor 2" />
+            }
             sensor_3="Location C:"
-            value_3="20 Bar"
+            value_3={
+              <FetchData datatype="PressureData" sensornumber="Sensor 3" />
+            }
             icon={
               <LeakAddIcon sx={{ color: colors.grey[100], fontSize: "26px" }} />
             }
@@ -134,10 +162,11 @@ const Dashboard = () => {
         >
           <SensorBox
             title="Force"
+            suffix=" N"
             sensor_1="Radial"
-            value_1="500 N"
+            value_1={<FetchData datatype="ForceData" sensornumber="Sensor 1" />}
             sensor_2="Perpendicular"
-            value_2="200 N"
+            value_2={<FetchData datatype="ForceData" sensornumber="Sensor 2" />}
             icon={
               <CompressIcon
                 sx={{ color: colors.grey[100], fontSize: "26px" }}
@@ -155,8 +184,9 @@ const Dashboard = () => {
         >
           <SensorBox
             title="Power"
+            suffix=" W"
             sensor_1="Freq. Conv:"
-            value_1="1000 W"
+            value_1={<FetchData datatype="PowerData" sensornumber="Sensor 1" />}
             icon={
               <ElectricMeterIcon
                 sx={{ color: colors.grey[100], fontSize: "26px" }}
