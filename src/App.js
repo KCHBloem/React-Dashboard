@@ -7,6 +7,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Temp from "./scenes/temp";
 import Force from "./scenes/force";
 import Vibration from "./scenes/vibration";
+import Settings from "./scenes/settings";
 // import Invoices from "./scenes/invoices";
 // import Contact from "./scenes/contacts";
 // import Bar from "./scenes/bar";
@@ -31,6 +32,7 @@ function App() {
               <Route path="/temp" element={<Temp />} />
               <Route path="/force" element={<Force />} />
               <Route path="/vibration" element={<Vibration />} />
+              <Route path="/settings" element={<Settings />} />
             </Routes>
           </main>
         </div>

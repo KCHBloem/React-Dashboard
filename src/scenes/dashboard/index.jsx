@@ -1,7 +1,6 @@
 import { Box, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
-import Header from "../../components/Header";
 import SelectGraph from "../../components/SelectGraph";
 import WaterIcon from "@mui/icons-material/Water";
 import SensorBox from "../../components/SensorBox";
@@ -19,11 +18,6 @@ const Dashboard = () => {
 
   return (
     <Box m="20px">
-      {/* HEADER */}
-      <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Bearing Data & Graphs" />
-      </Box>
-
       {/* GRID & CHARTS */}
       <Box
         display="grid"

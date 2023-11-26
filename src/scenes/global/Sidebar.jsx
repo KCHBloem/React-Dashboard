@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MicIcon from "@mui/icons-material/Mic";
 import WaterIcon from "@mui/icons-material/Water";
 import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
@@ -37,7 +36,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
   return (
@@ -63,7 +62,7 @@ const Sidebar = () => {
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
-          <MenuItem
+          {/*<MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
@@ -71,6 +70,7 @@ const Sidebar = () => {
               color: colors.grey[100],
             }}
           >
+          
             {!isCollapsed && (
               <Box
                 display="flex"
@@ -84,7 +84,7 @@ const Sidebar = () => {
               </Box>
             )}
           </MenuItem>
-
+*/}
           {!isCollapsed && (
             <Box mb="25px">
               <Box textAlign="center">
