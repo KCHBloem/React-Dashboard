@@ -1,3 +1,8 @@
+## Running
+Dev Mode: `npm run-script dev dev`
+
+Build: `npm run build` `npm start`
+
 ## Installing
 `git clone [link]`
 
