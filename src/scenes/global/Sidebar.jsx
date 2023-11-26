@@ -6,7 +6,6 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import DeviceThermostatIcon from "@mui/icons-material/DeviceThermostat";
-import MicIcon from "@mui/icons-material/Mic";
 import WaterIcon from "@mui/icons-material/Water";
 import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
 import CompressIcon from "@mui/icons-material/Compress";
@@ -88,12 +87,7 @@ const Sidebar = () => {
           {!isCollapsed && (
             <Box mb="25px">
               <Box textAlign="center">
-                <Typography
-                  variant="h2"
-                  color={colors.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
+                <Typography variant="h2" color={colors.grey[100]} fontWeight="bold" sx={{ m: "10px 0 0 0" }}>
                   Lager Testbank
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
@@ -104,92 +98,23 @@ const Sidebar = () => {
           )}
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <Item
-              title="Dashboard"
-              to="/"
-              icon={<HomeOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+            <Item title="Dashboard" to="/" icon={<HomeOutlinedIcon />} selected={selected} setSelected={setSelected} />
 
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
+            <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
               Data
             </Typography>
-            <Item
-              title="Console"
-              to="/console"
-              icon={<CallToActionIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Settings"
-              to="/settings"
-              icon={<DisplaySettingsIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+            <Item title="Console" to="/console" icon={<CallToActionIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Settings" to="/settings" icon={<DisplaySettingsIcon />} selected={selected} setSelected={setSelected} />
 
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
+            <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
               Sensors
             </Typography>
-            <Item
-              title="Temperature"
-              to="/temp"
-              icon={<DeviceThermostatIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Vibration"
-              to="/vibration"
-              icon={<WaterIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="RPM"
-              to="/rpm"
-              icon={<ChangeCircleIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Sound"
-              to="/sound"
-              icon={<MicIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Pressure"
-              to="/pressure"
-              icon={<LeakAddIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Force"
-              to="/force"
-              icon={<CompressIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Power"
-              to="/power"
-              icon={<ElectricMeterIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+            <Item title="Temperature" to="/temp" icon={<DeviceThermostatIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Vibration" to="/vibration" icon={<WaterIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="RPM" to="/rpm" icon={<ChangeCircleIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Pressure" to="/pressure" icon={<LeakAddIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Force" to="/force" icon={<CompressIcon />} selected={selected} setSelected={setSelected} />
+            <Item title="Power" to="/power" icon={<ElectricMeterIcon />} selected={selected} setSelected={setSelected} />
           </Box>
         </Menu>
       </ProSidebar>
