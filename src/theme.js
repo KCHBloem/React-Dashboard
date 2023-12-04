@@ -172,7 +172,7 @@ export const themeSettings = (mode) => {
               light: colors.grey[100],
             },
             background: {
-              defailt: colors.primary[500],
+              default: colors.primary[500],
             },
           }
         : {
@@ -233,8 +233,7 @@ export const useMode = () => {
 
   const colorMode = useMemo(
     () => ({
-      toggleColorMode: () =>
-        setMode((prev) => (prev === "light" ? "dark" : "light")),
+      toggleColorMode: () => setMode((prev) => (prev === "light" ? "dark" : "light")),
     }),
     []
   );

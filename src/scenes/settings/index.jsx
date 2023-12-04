@@ -1,7 +1,7 @@
 import { Box, useTheme, Typography, Checkbox } from "@mui/material";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const Settings = () => {
@@ -9,20 +9,6 @@ const Settings = () => {
   const colors = tokens(theme.palette.mode);
 
   const [gpioValues, setGpioValues] = useState({});
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("/gpio.json");
-        const data = response.data;
-        setGpioValues(data || {});
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const gpioPins = [
     { name: "5V", label: "", pinnumber: 1, color: colors.redAccent[500] },
@@ -77,7 +63,8 @@ const Settings = () => {
       }));
 
       // Send a request to update the server
-      await axios.post("http://localhost:3001/update-gpio", {
+      await axios.post("http://localhost:3001/send-data", {
+        eventType: "update-gpio",
         gpioName,
         value: newValue,
       });
@@ -128,7 +115,7 @@ const Settings = () => {
                 </Box>
               </React.Fragment>
             ) : (
-              <React.Fragment key={pin.name}>
+              <React.Fragment key={pin.pinnumber}>
                 {/* GPIO label */}
                 <Box gridColumn={pin.pinnumber} gridRow="1" borderRadius={2} backgroundColor={pin.color} display="flex" justifyContent="center">
                   <Typography sx={{ color: colors.grey[900] }}>{pin.label}</Typography>

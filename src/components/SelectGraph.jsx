@@ -1,12 +1,4 @@
-import {
-  FormControl,
-  Select,
-  InputLabel,
-  useTheme,
-  MenuItem,
-  Box,
-  Typography,
-} from "@mui/material";
+import { FormControl, Select, InputLabel, useTheme, MenuItem, Box, Typography } from "@mui/material";
 import { tokens } from "../theme";
 import React from "react";
 import TempLineChart from "./TempLineChart";
@@ -22,11 +14,7 @@ const Header = ({ title, subtitle }) => {
       <Typography variant="h3" fontWeight="600" color={colors.grey[100]}>
         {title}
       </Typography>
-      <Typography
-        variant="h5"
-        fontWeight="bold"
-        color={colors.greenAccent[500]}
-      >
+      <Typography variant="h5" fontWeight="bold" color={colors.greenAccent[500]}>
         {subtitle}
       </Typography>
     </Box>
@@ -43,37 +31,11 @@ const SelectGraph = ({ selected }) => {
   };
   return (
     <Box>
-      <Box
-        mt="25px"
-        p="0 30px"
-        display="flex "
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        {selectedGraph === "temperature" && (
-          <Header
-            title="Temperature Graph"
-            subtitle="Temperature plotted over time"
-          />
-        )}
-        {selectedGraph === "force" && (
-          <Header
-            title="Force Graph"
-            subtitle="Applied force plotted over time"
-          />
-        )}
-        {selectedGraph === "vibration" && (
-          <Header
-            title="Vibration FFT"
-            subtitle="Fast Fourier Transform of the vibrations"
-          />
-        )}
-        {selectedGraph === "rpm" && (
-          <Header
-            title="RPM Graph"
-            subtitle="Rotational Speed of the axle in RPM"
-          />
-        )}
+      <Box mt="25px" p="0 30px" display="flex " justifyContent="space-between" alignItems="center">
+        {selectedGraph === "temperature" && <Header title="Temperature Graph" subtitle="Temperature plotted over time" />}
+        {selectedGraph === "force" && <Header title="Force Graph" subtitle="Applied force plotted over time" />}
+        {selectedGraph === "vibration" && <Header title="Vibration FFT" subtitle="Fast Fourier Transform of the vibrations" />}
+        {selectedGraph === "rpm" && <Header title="RPM Graph" subtitle="Rotational Speed of the axle in RPM" />}
 
         <Box>
           <FormControl
@@ -113,7 +75,6 @@ const SelectGraph = ({ selected }) => {
               <MenuItem value="temperature">Temperature</MenuItem>
               <MenuItem value="vibration">Vibration</MenuItem>
               <MenuItem value="rpm">RPM</MenuItem>
-              <MenuItem value="sound">Sound</MenuItem>
               <MenuItem value="pressure">Pressure</MenuItem>
               <MenuItem value="force">Force</MenuItem>
             </Select>

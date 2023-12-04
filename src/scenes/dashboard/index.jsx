@@ -20,18 +20,19 @@ const Dashboard = () => {
       {/* GRID & CHARTS */}
       <Box display="grid" gridTemplateColumns="repeat(14, 1fr)" gridAutoRows="100px" gap="20px">
         {/* ROW 1 */}
-        <Box gridColumn="span 2" gridRow="span 2" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
-          <SensorBox
-            title="Safety"
-            suffix=""
-            sensor_1="E-Stop:"
-            sensor_2="Enclosure:"
-            value_1={<FetchData datatype="safetydata" sensornumber="SENSOR1" />}
-            value_2={<FetchData datatype="safetydata" sensornumber="SENSOR2" />}
-            icon={<WaterIcon sx={{ color: colors.grey[100], fontSize: "26px" }} />}
-          />
+        <Box gridColumn="span 7" gridRow="span 4" backgroundColor={colors.primary[400]} borderRadius="10px">
+          <ControlPanel />
         </Box>
-        <Box gridColumn="span 2" gridRow="span 2" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+
+        <Box
+          gridColumn="span 2"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="10px"
+        >
           <SensorBox
             title="Temperature"
             suffix="°C"
@@ -50,7 +51,15 @@ const Dashboard = () => {
             icon={<DeviceThermostatIcon sx={{ color: colors.grey[100], fontSize: "26px" }} />}
           />
         </Box>
-        <Box gridColumn="span 2" gridRow="span 2" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+        <Box
+          gridColumn="span 2"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="10px"
+        >
           <SensorBox
             title="Vibration"
             suffix="Hz"
@@ -63,7 +72,15 @@ const Dashboard = () => {
             icon={<WaterIcon sx={{ color: colors.grey[100], fontSize: "26px" }} />}
           />
         </Box>
-        <Box gridColumn="span 2" gridRow="span 2" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+        <Box
+          gridColumn="span 2"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="10px"
+        >
           <SensorBox
             title="RPM"
             sensor_1="Axle:"
@@ -72,7 +89,15 @@ const Dashboard = () => {
           />
         </Box>
 
-        <Box gridColumn="span 2" gridRow="span 2" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+        <Box
+          gridColumn="span 2"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="10px"
+        >
           <SensorBox
             title="Pressure"
             suffix=" Bar"
@@ -86,7 +111,15 @@ const Dashboard = () => {
           />
         </Box>
 
-        <Box gridColumn="span 2" gridRow="span 2" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+        <Box
+          gridColumn="span 2"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="10px"
+        >
           <SensorBox
             title="Force"
             suffix=" N"
@@ -98,7 +131,15 @@ const Dashboard = () => {
           />
         </Box>
 
-        <Box gridColumn="span 2" gridRow="span 2" backgroundColor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
+        <Box
+          gridColumn="span 2"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="10px"
+        >
           <SensorBox
             title="Power"
             suffix=" W"
@@ -109,29 +150,26 @@ const Dashboard = () => {
         </Box>
 
         {/* ROW 2 */}
-        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]}>
-          <ControlPanel />
-        </Box>
 
-        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]}>
+        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]} borderRadius="10px">
           <SelectGraph selected="temperature" />
         </Box>
         {/* ROW 3 */}
-        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]}>
+        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]} borderRadius="10px">
           <SelectGraph selected="force" />
         </Box>
-        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]}>
+        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]} borderRadius="10px">
           <SelectGraph selected="vibration" />
         </Box>
         {/* ROW 4 */}
-        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]}>
+        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]} borderRadius="10px">
           <SelectGraph selected="sound" />
         </Box>
-        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]}>
+        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]} borderRadius="10px">
           <SelectGraph selected="pressure" />
         </Box>
         {/* ROW 5 */}
-        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]}>
+        <Box gridColumn="span 7" gridRow="span 3" backgroundColor={colors.primary[400]} borderRadius="10px">
           <SelectGraph selected="pressure" />
         </Box>
       </Box>
