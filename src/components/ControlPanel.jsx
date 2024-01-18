@@ -2,7 +2,6 @@ import { Typography, Box, useTheme, IconButton, Button } from "@mui/material";
 import { tokens } from "../theme";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import React from "react";
-import FetchData from "./FetchData";
 import axios from "axios";
 
 const ControlPanel = () => {
@@ -15,6 +14,13 @@ const ControlPanel = () => {
   const [radialForce, setRadialForce] = React.useState(0);
   const [PerpForce, setPerpForce] = React.useState(0);
   const [RPM, setRPM] = React.useState(0);
+
+  const [valve_1, setValve_1] = React.useState(0);
+  const [valve_2, setValve_2] = React.useState(0);
+  const [valve_3, setValve_3] = React.useState(0);
+  const [valve_4, setValve_4] = React.useState(0);
+
+  const [valveMotorClicked, setValveMotorClicked] = React.useState(0);
 
   const onMotorButtonClick = async () => {
     try {
@@ -74,6 +80,76 @@ const ControlPanel = () => {
     }
   };
 
+  const onValve_1Update = async (newValve_1) => {
+    try {
+      setValve_1(newValve_1);
+
+      await axios.post("http://localhost:3001/send-data", {
+        eventType: "update-valve_1_state",
+        State: newValve_1,
+      });
+      console.log("Updated Valve 1 State");
+    } catch (error) {
+      console.error("Error updating valve 1 state:", error);
+    }
+  };
+
+  const onValve_2Update = async (newValve_2) => {
+    try {
+      setValve_2(newValve_2);
+
+      await axios.post("http://localhost:3001/send-data", {
+        eventType: "update-valve_2_state",
+        State: newValve_2,
+      });
+      console.log("Updated Valve 2 State");
+    } catch (error) {
+      console.error("Error updating valve 2 state:", error);
+    }
+  };
+
+  const onValve_3Update = async (newValve_3) => {
+    try {
+      setValve_3(newValve_3);
+
+      await axios.post("http://localhost:3001/send-data", {
+        eventType: "update-valve_3_state",
+        State: newValve_3,
+      });
+      console.log("Updated Valve 3 State");
+    } catch (error) {
+      console.error("Error updating valve 3 state:", error);
+    }
+  };
+
+  const onValve_4Update = async (newValve_4) => {
+    try {
+      setValve_4(newValve_4);
+
+      await axios.post("http://localhost:3001/send-data", {
+        eventType: "update-valve_4_state",
+        State: newValve_4,
+      });
+      console.log("Updated Valve 4 State");
+    } catch (error) {
+      console.error("Error updating valve 4 state:", error);
+    }
+  };
+
+  const onValveMotorClick = async (newValveMotor) => {
+    try {
+      setValveMotorClicked(newValveMotor);
+
+      await axios.post("http://localhost:3001/send-data", {
+        eventType: "update-valve_motor",
+        State: newValveMotor,
+      });
+      console.log("Updated Valve Motor state");
+    } catch (error) {
+      console.error("Error updating valve motor state:", error);
+    }
+  };
+
   return (
     <Box>
       <Box mt="25px" p="0 30px" display="flex " justifyContent="space-between">
@@ -81,24 +157,6 @@ const ControlPanel = () => {
           <Typography variant="h2" fontWeight="600" color={colors.grey[100]}>
             Control Panel
           </Typography>
-        </Box>
-        <Box display="flex" border="2px solid red" padding="10px" borderRadius="10px">
-          <Box mr="10px">
-            <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
-              Emergency Stop:
-            </Typography>
-            <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
-              Enclosure State:
-            </Typography>
-          </Box>
-          <Box>
-            <Typography variant="h5" fontWeight="600" color={colors.redAccent[400]}>
-              {<FetchData datatype="safetydata" sensornumber="SENSOR1" />}
-            </Typography>
-            <Typography variant="h5" fontWeight="600" color={colors.redAccent[400]}>
-              {<FetchData datatype="safetydata" sensornumber="SENSOR2" />}
-            </Typography>
-          </Box>
         </Box>
       </Box>
       <Box display="flex">
@@ -451,6 +509,91 @@ const ControlPanel = () => {
           >
             <PowerSettingsNewIcon />
           </IconButton>
+        </Box>
+        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between">
+          <Box display="flex" alignItems="center" justifyContent="space-between">
+            <Box display="flex" flexDirection="column">
+              <Button
+                disabled={notsafe}
+                variant="contained"
+                sx={{
+                  margin: "3px",
+                  "&:hover": {
+                    backgroundColor: colors.redAccent[600],
+                  },
+                  backgroundColor: colors.redAccent[500],
+                  width: "100px",
+                }}
+                onClick={() => onValve_1Update(!valve_1)}
+              >
+                Valve 1: {valve_1 ? "Open" : "Closed"}
+              </Button>
+              <Button
+                disabled={notsafe}
+                variant="contained"
+                sx={{
+                  margin: "3px",
+                  "&:hover": {
+                    backgroundColor: colors.redAccent[600],
+                  },
+                  backgroundColor: colors.redAccent[500],
+                  width: "100px",
+                }}
+                onClick={() => onValve_2Update(!valve_2)}
+              >
+                Valve 2: {valve_2 ? "Open" : "Closed"}
+              </Button>
+            </Box>
+            <Box display="flex" flexDirection="column">
+              <Button
+                disabled={notsafe}
+                variant="contained"
+                sx={{
+                  margin: "3px",
+                  "&:hover": {
+                    backgroundColor: colors.redAccent[600],
+                  },
+                  backgroundColor: colors.redAccent[500],
+                  width: "100px",
+                }}
+                onClick={() => onValve_3Update(!valve_3)}
+              >
+                Valve 3: {valve_3 ? "Open" : "Closed"}
+              </Button>
+              <Button
+                disabled={notsafe}
+                variant="contained"
+                sx={{
+                  margin: "3px",
+                  "&:hover": {
+                    backgroundColor: colors.redAccent[600],
+                  },
+                  backgroundColor: colors.redAccent[500],
+                  width: "100px",
+                }}
+                onClick={() => onValve_4Update(!valve_4)}
+              >
+                Valve 4: {valve_4 ? "Open" : "Closed"}
+              </Button>
+            </Box>
+          </Box>
+          <Box>
+            <IconButton
+              disabled={notsafe}
+              onClick={() => onValveMotorClick(!valveMotorClicked)}
+              sx={{
+                transform: "scale(1.8)",
+                color: colors.grey[100],
+                "&:hover": {
+                  color: colors.grey[100],
+                  backgroundColor: valveMotorClicked ? colors.redAccent[600] : colors.greenColor[600],
+                },
+                backgroundColor: valveMotorClicked ? colors.redAccent[500] : colors.greenColor[500],
+              }}
+            >
+              <PowerSettingsNewIcon />
+            </IconButton>
+          </Box>
         </Box>
       </Box>
     </Box>
