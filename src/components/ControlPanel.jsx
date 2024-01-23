@@ -6,6 +6,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CompressIcon from "@mui/icons-material/Compress";
+import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
 import FetchData from "./FetchData";
 import React from "react";
 import axios from "axios";
@@ -177,9 +178,9 @@ const ControlPanel = () => {
         </Box>
       </Box>
       <Box display="flex">
-        <Box border="2px solid grey" padding="10px" borderRadius="10px" m="10px">
+        <Box display="flex" flexDirection="column" border="2px solid grey" padding="10px" borderRadius="10px" m="10px" alignItems="center">
           <Box display="flex" justifyContent="center">
-            <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
+            <Typography variant="h4" fontWeight="600" color={colors.grey[100]}>
               Axle RPM
             </Typography>
           </Box>
@@ -281,9 +282,9 @@ const ControlPanel = () => {
           </Box>
         </Box>
 
-        <Box border="2px solid grey" padding="10px" borderRadius="10px" m="10px">
+        <Box display="flex" flexDirection="column" border="2px solid grey" padding="10px" borderRadius="10px" m="10px" alignItems="center">
           <Box display="flex" justifyContent="center">
-            <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
+            <Typography variant="h4" fontWeight="600" color={colors.grey[100]}>
               Radial Force
             </Typography>
           </Box>
@@ -385,10 +386,10 @@ const ControlPanel = () => {
           </Box>
         </Box>
 
-        <Box border="2px solid grey" padding="10px" borderRadius="10px" m="10px">
+        <Box display="flex" flexDirection="column" border="2px solid grey" padding="10px" borderRadius="10px" m="10px" alignItems="center">
           <Box display="flex" justifyContent="center">
-            <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
-              Perpe. Force
+            <Typography variant="h4" fontWeight="600" color={colors.grey[100]}>
+              Axial Force
             </Typography>
           </Box>
           <Box display="flex">
@@ -497,7 +498,7 @@ const ControlPanel = () => {
                 sx={{
                   width: "60px",
                   height: "60px",
-                  margin: "0 25px 10px 0",
+                  margin: "0 50px 10px 0",
                   color: colors.grey[100],
                   "&:hover": {
                     color: colors.grey[100],
@@ -506,14 +507,14 @@ const ControlPanel = () => {
                   backgroundColor: valve_1 ? colors.greenColor[500] : colors.redAccent[500],
                 }}
               >
-                <ArrowUpwardIcon sx={{ fontSize: "50px" }} />
+                <ArrowForwardIcon sx={{ fontSize: "50px" }} />
               </IconButton>
               <IconButton
                 onClick={() => onButtonClick("Valve2", !valve_2)}
                 sx={{
                   width: "60px",
                   height: "60px",
-                  margin: "10px 25px 0 0",
+                  margin: "10px 50px 0 0",
                   color: colors.grey[100],
                   "&:hover": {
                     color: colors.grey[100],
@@ -522,7 +523,7 @@ const ControlPanel = () => {
                   backgroundColor: valve_2 ? colors.greenColor[500] : colors.redAccent[500],
                 }}
               >
-                <ArrowDownwardIcon sx={{ fontSize: "50px" }} />
+                <ArrowBackIcon sx={{ fontSize: "50px" }} />
               </IconButton>
             </Box>
             <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between">
@@ -541,20 +542,6 @@ const ControlPanel = () => {
               >
                 <CompressIcon />
               </IconButton>
-              <Button
-                disabled={1}
-                variant="contained"
-                sx={{
-                  margin: "3px",
-                  "&.Mui-disabled": {
-                    backgroundColor: colors.grey[200],
-                  },
-                }}
-              >
-                <Typography variant="h6" fontWeight="600" color={colors.grey[700]}>
-                  100 Bar
-                </Typography>
-              </Button>
             </Box>
 
             <Box display="flex" flexDirection="column">
@@ -563,7 +550,7 @@ const ControlPanel = () => {
                 sx={{
                   width: "60px",
                   height: "60px",
-                  margin: "0 0 10px 25px",
+                  margin: "0 0 10px 50px",
                   color: colors.grey[100],
                   "&:hover": {
                     color: colors.grey[100],
@@ -572,14 +559,14 @@ const ControlPanel = () => {
                   backgroundColor: valve_3 ? colors.greenColor[500] : colors.redAccent[500],
                 }}
               >
-                <ArrowBackIcon sx={{ fontSize: "50px" }} />
+                <ArrowUpwardIcon sx={{ fontSize: "50px" }} />
               </IconButton>
               <IconButton
                 onClick={() => onButtonClick("Valve4", !valve_4)}
                 sx={{
                   width: "60px",
                   height: "60px",
-                  margin: "10px 0 0 25px",
+                  margin: "10px 0 0 50px",
                   color: colors.grey[100],
                   "&:hover": {
                     color: colors.grey[100],
@@ -588,11 +575,11 @@ const ControlPanel = () => {
                   backgroundColor: valve_4 ? colors.greenColor[500] : colors.redAccent[500],
                 }}
               >
-                <ArrowForwardIcon sx={{ fontSize: "50px" }} />
+                <ArrowDownwardIcon sx={{ fontSize: "50px" }} />
               </IconButton>
             </Box>
           </Box>
-          <Box display="flex " justifyContent="space-between" alignItems="center" border="2px solid grey" padding="50px" borderRadius="10px" m="10px">
+          <Box display="flex " justifyContent="space-between" alignItems="center" border="2px solid grey" padding="42px" borderRadius="10px" m="10px">
             <IconButton
               onClick={() => onButtonClick("motor", !Motorclicked)}
               sx={{
@@ -607,6 +594,12 @@ const ControlPanel = () => {
             >
               <PowerSettingsNewIcon />
             </IconButton>
+            <Box display="flex" flexDirection="row" paddingLeft="30px">
+              <Typography variant="h3" fontWeight="bold" sx={{ color: colors.grey[100] }}>
+                {<FetchData datatype="rpmdata" sensornumber="SENSOR1" />} RPM
+              </Typography>
+              <ChangeCircleIcon sx={{ color: colors.grey[100], fontSize: "26px" }} />
+            </Box>
           </Box>
         </Box>
       </Box>
